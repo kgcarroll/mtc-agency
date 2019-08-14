@@ -1,0 +1,140 @@
+@import "compass/reset";
+@import "compass/utilities";
+@import "compass/css3";
+@import "modules/variables";
+@import "modules/mixins";
+@import "modules/extends";
+@import "modules/slick";
+
+
+// Site-wide CSS and reuseable classes are here.
+@import "modules/classes";
+
+html {
+  font-size: 62.5%;
+  height: 100%;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: $black;
+
+  &.logged-in {
+    padding: 0;
+    @media screen and ( min-width: 782px ) {
+      padding: 0;
+    }
+    #header,
+    #navigation-container {
+      top: 46px;
+      @media screen and ( min-width: 782px ) {
+        top: 32px;
+      }
+    }
+    #nav-trigger {
+      top: 66px;
+      @media screen and ( min-width: 782px ) {
+        top: 50px;
+      }
+    }
+  }
+  &.fixed {
+    position: fixed;
+    top: 0;
+    width: 100%;
+  }
+}
+
+#wrapper { background: $white; }
+
+.container {
+  position: relative;
+  z-index: 1;
+  margin: 57px 0 0;
+}
+
+
+// All this crazy 404 CSS....
+.error404 {
+  .headline-container {
+    .no-featured-image {
+      @include breakpoint(tablet) { height: 200px; }
+      @include breakpoint(ten) { height: 300px; }
+      #headline-content {
+        .link {
+          margin: 20px 0 0;
+          a {
+            position: relative;
+            @include font-family($light);
+            @include font(1.5, $white);
+            background: $gray;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Thank you page
+.page-thank-you {
+  .headline-container {
+    .no-featured-image {
+      @include breakpoint(tablet) { height: 200px; }
+      @include breakpoint(ten) { height: 300px; }
+    }
+  }
+}
+
+
+@import "pages/header";
+
+// Each page is stand alone.
+@import "pages/home";
+@import "pages/employee";
+@import "pages/case_study";
+@import "pages/about";
+@import "pages/careers";
+@import "pages/blog";
+@import "pages/contact";
+@import "pages/single_career";
+// @import "pages/temp_home_page";
+@import "pages/footer";
+
+// Add Editor Styles
+.content-block { 
+    border:1px solid #eee; 
+    padding:3px;
+    background:#ccc;
+    max-width:250px;
+    float:right; 
+    text-align:center;
+}
+.content-block:after { 
+    clear:both;
+} 
+.blue-button { 
+    background-color:#33bdef;
+    -moz-border-radius:6px;
+    -webkit-border-radius:6px;
+    border-radius:6px;
+    border:1px solid #057fd0;
+    display:inline-block;
+    cursor:pointer;
+    color:#ffffff;
+    padding:6px 24px;
+    text-decoration:none;
+}
+ 
+.red-button {
+    background-color:#bc3315;
+    -moz-border-radius:6px;
+    -webkit-border-radius:6px;
+    border-radius:6px;
+    border:1px solid #942911;
+    display:inline-block;
+    cursor:pointer;
+    color:#ffffff;
+    padding:6px 24px;
+    text-decoration:none;
+}

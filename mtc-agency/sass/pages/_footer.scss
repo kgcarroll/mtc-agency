@@ -1,0 +1,171 @@
+#footer {
+	background: $black;
+	padding: 45px;
+	@include box-sizing(border-box);
+	@include breakpoint(ten) { padding: 65px 80px; }
+	.content {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		text-align: center;
+		@include breakpoint(ten) { text-align: left; }
+		.column {
+			width: 100%;
+			@include breakpoint(ten) { width: 50%; }
+		}
+		.footer-left {
+			.left-top {
+				.logo {
+					display: inline-block;
+					margin: 0 0 15px;
+					@include breakpoint(ten) {
+						margin: 0;
+					}
+					a {
+						@include font(8, $white);
+						text-decoration: none;
+						&:hover { color: $red; }
+						@include breakpoint(ten) { @include font-size(6); }
+					}
+				}
+				.address {
+					margin: 15px 0 0;
+					@include breakpoint(ten) {
+						vertical-align: top;
+						display: inline-block;
+						margin: 0;
+						padding: 0 0 0 30px;
+					}
+					a {
+						@include font-family($light);
+						@include font(1.3, $white);
+						text-decoration: none;
+						&:hover { color: $red; }
+						span {
+							display: inline-block;
+							&.top { margin: 0 0 5px; }
+							&:last-of-type {
+								display: block;
+							}
+						}
+					}
+				}
+				.social {
+					vertical-align: top;
+					margin: 15px 0;
+					@include breakpoint(ten) {
+						display: inline-block;
+						margin: 10px 0 0;
+						padding: 0;
+					}
+					@include breakpoint(twelve) {
+						margin: 0;
+						padding: 0 0 0 150px;
+					}
+				  .icon {
+				    color: $darkgray;
+				    .fa-stack-1x { color: $black; }
+				    &:hover { color: $red; }
+				  }
+				}
+			}
+			.mobile,
+			.left-bottom {
+				padding: 35px 0 0;
+				div {
+					@include breakpoint(ten) { display: inline-block; }
+				}
+				.email,
+				.phone {
+					a {
+						@include font-family($bold);
+						@include font(1.6, $white);
+						text-decoration: none;
+						&:hover { color: $red; }
+					}
+				}
+				.pipe {
+					padding: 0 15px;
+					@include font-family($bold);
+					@include font(1.3, $white);
+				}
+			}
+			.mobile {
+				display: block;
+				padding: 10px 0 0;
+				.email {
+					margin: 0 0 10px;
+					padding: 0 0 15px;
+					background: url(../images/mobile-email-border.png) bottom center no-repeat transparent;
+					a { @include font-size(2); }
+				}
+				.email, .phone {
+					a { @include font-size(2); }
+				}
+				@include breakpoint(ten) { display: none; }
+			}
+			.left-bottom {
+				display: none;
+				@include breakpoint(ten) { display: block; }
+			}
+		}
+		.footer-right {
+			text-align: center;
+			@include breakpoint(ten) { text-align: right; }
+			.right-content {
+				@include breakpoint(ten) { 
+					float: left;
+					width: calc(100% - 94px);
+				}
+				#footer-navigation {
+					display: none;
+					//@include breakpoint(ten) { display: block; }
+					ul {
+						li {
+							display: inline-block;
+							padding: 0 5px;
+							&:first-of-type { padding: 0 5px 0 0; }
+							&:last-of-type { padding: 0 0 0 5px; }
+							@include breakpoint(twelve) {
+								padding: 0 10px;
+								&:first-of-type { padding: 0 10px 0 0; }
+								&:last-of-type { padding: 0 0 0 10px; }
+							}
+							a {
+								@include transition(all .25s ease-in-out);
+								@include font-family($light);
+								@include font(1.3, $white);
+								text-decoration: none;
+								text-transform: lowercase;
+								&:hover { color: $red; }
+							}
+						}
+					}
+				}
+				.copyright {
+					padding: 10px 0 0;
+					@include font-family($light);
+					@include font(1.3, $darkgray);
+					@include breakpoint(ten) { margin: 25px 0 0; }
+					a.name {
+						// text-transform: lowercase;
+						text-decoration: none;
+						color: $darkgray;
+						&:hover {
+							color: $red;
+						}
+					}
+				}
+			}
+			.gsa {
+				margin: 10px 0 0;
+				@include breakpoint(ten) {
+					margin: 0;
+					width: 59px;
+					padding: 0 0 0 35px;
+					float: left;
+				}
+			}
+		}
+	}
+}

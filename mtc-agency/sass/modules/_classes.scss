@@ -1,0 +1,630 @@
+.vertical-center-parent {
+  display:table;
+  height:100%;
+  width:100%;
+  position: relative;
+  .vertical-center-child {
+    display:table-cell;
+    vertical-align:middle;
+  }
+}
+
+.ease { @include transition(all .25s ease-in-out); }
+
+.inner-wrap {
+	max-width: 960px;
+	margin: 0 auto;
+	padding: 0 20px;
+	@include breakpoint(ten) {
+		padding: 0;	
+	}
+	&.sm {
+		max-width: 860px;
+	}
+}
+
+// Headers
+.headline-container {
+	position: relative;
+	overflow: hidden;
+	.wrapper {
+		margin: 0 10px;
+		.featured-image, .no-featured-image, .sm-featured-image {
+			position: relative;
+			height: calc(100vh - 57px);
+			@extend %cover;
+			@include breakpoint(tablet) {
+				height: calc(80.3vh - 57px);
+			}
+			@include breakpoint(ten) {
+				height: calc(100vh - 57px);
+			}
+
+			#headline-content {
+				position: absolute;
+				top: 50%;
+				left: 0;
+				right: 0;
+				text-align: center;
+				margin: -82px auto 0;
+				padding: 0 25px;
+
+				@include breakpoint(ten) {
+					margin: -82px 0 0;
+					text-align: left;
+					left: 50px;
+					right: auto;
+					// max-width: 600px;
+					padding: 0 100px;
+				}
+				.headline {
+					@include font-family($bold);
+					@include font(4, $white);
+					@include breakpoint(mobileL) {
+						@include font-size(3.4);
+					}
+					@include breakpoint(ten) {
+						@include font-size(7);
+					}
+				}
+				.subheadline {
+					margin: 20px 0 0;	
+					@include font-family($med);
+					@include font(1.6, $white);
+					line-height: 1.5;
+					.red { color: #F00; }
+					@include breakpoint(ten) {
+						@include font-size(2.2);
+					}
+				}
+			}
+
+			.jumplink-wrapper {
+				display: none;
+				position: absolute; 
+				left: 0;
+				right: 0;
+				bottom: 75px;
+				margin: 0 auto;
+				width: 49px;
+				@include breakpoint(mobileL) { display: none; }
+				@include breakpoint(tablet) { display: block; }
+				@include breakpoint(ten) {
+					left: 150px;
+					right: auto;
+					margin: 0;
+					width: auto;
+				}
+				a.jump {
+					text-decoration: none;
+					color: $white;
+					@include font-family($med);
+					@include font(1.5, $white);
+					// position: relative;
+					display: flex;
+			    align-items: center;
+					.icon-wrap {
+						// position: absolute;
+						border: 2px solid $white;
+						@include border-radius(50%);
+						height: 49px;
+						width: 49px;
+						top: 0;
+						.icon-down {
+							margin: 0;
+							@include font-size(1.1);
+							padding: 20px 16px;
+							display: block;
+						}
+					}
+					.link-text {
+						// margin: 5px 0 0 64px;
+						margin: 0 0 0 10px;
+						display: none;
+						@include breakpoint(ten) { display: block; }
+					}
+					&:hover {
+						.icon-wrap {
+							.icon-down {
+								margin: 3px 0 0;
+							}
+						}
+					}
+				}
+			}
+			.disclaimer {
+				diplay: none;
+				position: absolute;
+				bottom: 20px;
+				left: 0;
+				right: 0;
+				text-align: center;
+				margin: -42px auto 0;
+				@include font-family($med);
+				@include font(1.4, $white);
+				line-height: 1.5;
+				.red { color: #F00; }
+				@include breakpoint(tablet) { display: block; }
+				@include breakpoint(ten) {
+					bottom: 75px;
+					text-align: left;
+					left: 75px;
+					right: auto;
+					padding: 0 0 0 150px;
+					width: 50%;
+				}
+					
+				@include breakpoint(twelve) { max-width: 75%; }
+				@include breakpoint(fourteen) { max-width: 60%; }
+				@include breakpoint(sixteen) { max-width: 45%; }
+			}
+			.circle {
+				display: none;
+				@include breakpoint(ten) {
+					display: block;
+					position: absolute;
+					top: 50%;
+					margin-top: -82px;
+					margin-left: -105px;
+					background: $green;
+					@include border-radius(50%);
+					height: 164px;
+					width: 164px;
+				}
+			}
+		}
+		// Small Featured image override, for small headers
+		.sm-featured-image {
+			height: calc(100vh - 57px);
+			padding: 0;
+			background-size: cover;
+			background-repeat: no-repeat;
+			@include breakpoint(ten) {
+				height: 0;
+				padding: 18.62% 0;
+			}
+		}
+		// No Featured image override, for small headers
+		.no-featured-image {
+			// height: calc(50vh - 57px);
+			// @include breakpoint(mobileL) { height: calc(75vh - 57px) }
+			height: 105px;
+			@include breakpoint(tablet) { height: 164px; }
+			@include breakpoint(ten) { height: 300px; }
+			#headline-content {
+				margin-top: 50px;
+				top: 0;
+				@include breakpoint(ten) {
+					top: 50%;
+					margin-top: -82px;
+				}
+				.headline { color: $black; }
+				.subheadline { color: $gray; }
+			}
+		}
+	}
+	&.options {
+		.no-featured-image {
+			#headline-content {
+				max-width: 100%;
+			}
+		}
+	}
+}
+
+#call-out {
+	text-align: center;
+	position: relative;
+	margin: 25px auto 30px;
+	@include breakpoint(ten) {
+		margin: 70px auto 50px;
+	}
+	.circle, .square {
+		display: none;
+		background: $verylightgray;
+		position: absolute;
+		@include square(35);
+		@include breakpoint(ten) { display: block; }
+	}
+	.circle {
+		@include border-radius(50%);
+		top: 0;
+		left: 0;
+	}
+	.square {
+		right: 0;
+		bottom: 0;
+	}
+	.content-wrap {
+		padding: 20px;
+		@include breakpoint(ten) {
+			padding: 85px 0;		
+		}
+		h2 {
+			@include font-family($bold);
+			@include font(2.6, $black);
+			@include breakpoint(ten) {
+				@include font-size(3.4);
+			}
+		}
+		h3 {
+			margin: 20px 0 0;
+			@include font-family($light);
+			@include font(1.8, $black);
+			line-height: 1.5;
+			@include breakpoint(ten) {
+				@include font-size(2.1);
+			}
+		}
+		.link {
+			margin: 50px 0 0;
+			a {
+				@include font-family($med);
+				@include font(1.5, $black);
+				background: $green;
+			}
+		}
+	}
+	// Careers overrides
+	&.careers {
+		.circle, .square {
+			display: none;
+		}
+		.content-wrap {
+			.link {
+				margin:35px 0 0 0;
+				a {
+					margin: 0 auto;
+					display:block;
+					background: $lightgray;
+			    text-align: left;
+			    @include breakpoint(tablet){
+						max-width: 450px;
+			    	width: 100%;
+
+			    }
+				}
+			}
+		}
+	}
+}
+
+
+// Icon grid (About us & Careers)
+.icon-grid {
+	background: $offwhite;
+	text-align: center;
+	padding: 60px 20px 25px;
+	margin: 0 auto 45px;
+	@include breakpoint(ten) { padding: 90px 0 150px; }
+	.headline {
+		margin: 0 0 15px;
+		@include font-family($bold);
+		@include font(2.7, $black);
+	}
+	.sub-headline {
+		@include font-family($light);
+		@include font(1.5, $black);
+		line-height: 1.5;
+	}
+	#grid-wrapper {
+		max-width: 1024px;
+		margin: 0 auto;
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		@include breakpoint(ten) {
+			margin: 80px auto 0;
+		}
+		.row-container {
+			width: 100%;
+			border-bottom: 1px solid $gray;
+			&:last-of-type { border-bottom: none; }
+			@include breakpoint(ten) { width: 33%; }
+			.row-wrap {
+				text-align: center;
+				padding: 30px;
+				@include box-sizing(border-box);
+				@include breakpoint(ten) { padding: 60px; }
+				.icon {
+					background: $white;
+					@include border-radius(50%);
+					@include square(218);
+					margin: 0 auto;
+					span {
+						@include font(10.8, $green);
+					}
+				}
+				.content {
+					margin: 50px 0 0;
+					@include breakpoint(ten) { text-align: left; }
+					.headline {
+						margin: 0 0 20px;
+						@include font-family($bold);
+						@include font(2.2, $black);
+					}
+					.copy {
+						@include font-family($light);
+						@include font(1.5, $black);
+						line-height: 1.5;
+					}
+				}
+			}
+			@include breakpoint(ten) {
+				border-bottom: none;
+				// Add left/right border to every 2nd, 5th, 8th - repeating.
+				&:nth-child(3n+2) {
+					.row-wrap {
+						border-left: 1px solid $gray;
+						border-right: 1px solid $gray;
+					}
+				}
+				// Add top border to everything but the first three.
+				&:nth-child(n+4) {
+					border-top: 1px solid $gray;
+					padding: 25px 0 0;
+				}
+			}
+		}
+	}
+}
+
+
+#bottom-callouts {
+	border-top: 2px solid $green;
+	margin: 25px 20px 0;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	padding: 45px 0;
+	@include breakpoint(ten) { margin: 25px 80px 0; }
+	.callout-wrapper {
+		width: 100%;
+		@include breakpoint(tablet) { width: calc(50% - 5px); }
+		.callout {
+			width: 100%;
+			height: 275px;
+			background-size: cover;
+			background-position: center; 
+			background-repeat: no-repeat;
+			@include breakpoint(ten) {
+				padding: 20.09% 0;
+				height: 0;
+			}
+			.callout-wrap {
+				padding: 35px;
+				vertical-align: bottom;
+				@include box-sizing(border-box);
+				@include breakpoint(ten) {
+					vertical-align: middle;
+				}
+				.pre-title {
+					display: none; 
+					@include breakpoint(ten) {
+						display: block;
+						text-transform: uppercase;
+						margin: 0 0 10px;
+						@include font-family($bold);
+						@include font(1.4, $white);
+					}
+				}
+				.title {
+					@include font-family($bold);
+					@include font(2.6, $white);
+				}
+				.link {
+					margin: 20px 0 0;
+					a {
+						position: relative;
+						@include font-family($light);
+						@include font(1.5, $black);
+						background: $lightgray;
+						text-decoration: none;
+						display: inline-block;
+						text-transform: lowercase;
+						padding: 15px 60px 15px 15px;	
+						@include breakpoint(ten) { padding: 20px 75px 20px 30px;	 }
+						.icon-arrow {
+							position: absolute;
+							right: 15px;
+							@include breakpoint(ten) { right: 30px; }
+						}
+						&:hover {
+							.icon-arrow {
+								right: 12px;
+								@include breakpoint(ten) { right: 27px; }
+							}
+						}
+					}
+				}
+			}
+		}
+		&:first-of-type {
+			margin: 0 0 10px;
+			@include breakpoint(tablet) {
+				margin: 0 5px 0 0;
+			}
+		}
+		&:last-of-type {
+			@include breakpoint(tablet) {
+				margin: 0 0 0 5px;
+			}
+		}
+	}
+}
+
+// Bottom Related Content
+#related-content {
+	margin: 50px 0 0;
+	.related-title {
+		span {
+			@include font-family($bold);
+			@include font(2.7, $black);
+			border-bottom: 2px solid $green;
+			display: inline-block;
+			padding: 0 0 10px 20px;
+			@include breakpoint(ten) {
+				padding: 0 0 10px 80px;
+			}
+		}
+	}
+	#related-content-rows {
+		margin: 0 20px;
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		padding: 20px 0;
+		@include breakpoint(ten) {
+			margin: 0 80px;
+			padding: 45px 0;
+		}
+		.content-wrapper {
+			width: 100%;
+			padding-bottom: 20px;
+			@include breakpoint(ten) {
+				padding: 0;
+				width: 50%;
+			}
+			.content {
+				height: 0;
+				padding-top: 100%;
+				background-position: center;
+				background-size: cover;
+				background-repeat: no-repeat;
+				position: relative;
+				@include breakpoint(mobileL) { padding-top: 40%; }
+				@include breakpoint(tablet) { padding-top: 100%; }
+				.overlay { 
+					@extend %fill;
+					background: rgba($black, .5);
+				}
+				.inner-wrap {
+					padding: 50px;
+					@include box-sizing(border-box);
+					@extend %fill;
+					.type  {
+						margin: 0 0 5px;
+						text-transform: uppercase;
+						@include font-family($bold);
+						@include font(1.4, $white);
+					}
+					.title a {
+						@include font-family($bold);
+						@include font(2.6, $white);
+						line-height: 1.25;
+						text-decoration: none;
+					}
+					.link {
+						position: absolute;
+						bottom: 50px;
+						display: inline-block;
+						a {
+							@include font-family($light);
+							@include font(1.5, $black);
+							background: $lightgray;
+						}
+					}
+				}
+			}
+			&.row-2, &.row-3 {
+				width: 100%;
+				@include breakpoint(ten) { width: 25%; }
+				.content {
+					height: 0;
+					@include breakpoint(mobileL) { padding-top: 40%; }
+					@include breakpoint(ten) { padding-top: 200%; }
+				}
+			}
+		}
+	}
+}
+
+
+.link {
+	a {
+		position: relative;
+		text-transform: lowercase;
+		text-decoration: none;
+		display: inline-block;
+		padding: 15px 60px 15px 15px;	
+		@include breakpoint(ten) { padding: 20px 75px 20px 30px; }
+		.icon-arrow {
+			position: absolute;
+			right: 15px;
+			top: 15px;
+			@include breakpoint(ten) {
+				right: 30px;
+				top: 20px;
+			}
+		}
+		&:hover {
+			.icon-arrow {
+				right: 12px;
+				@include breakpoint(ten) { right: 27px; }
+			}
+		}
+	}
+	&.mobile {
+		@include breakpoint(ten) {
+			display: none;
+		}
+	}
+}
+
+// Thank you Header
+.page-template-thank-you {
+	.headline-container {
+		.wrapper {
+			.no-featured-image {
+				height: auto;
+				#headline-content {
+					position: relative;
+					margin-top: 50px;
+					top: 0;
+					.headline { color: $black; }
+					.subheadline {
+						color: $gray;
+						margin: 20px 0;
+					}
+				}
+			}
+
+			.copy {
+				@include font-family($light);
+				@include font(1.5, $black);
+				line-height: 1.5;
+				text-align: center;
+				@include breakpoint(tablet) {
+					max-width: 75%;
+					margin: 0 auto;
+				}
+				@include breakpoint(ten) {
+					max-width: 100%;
+					margin: 0;
+					text-align: left;
+					left: 50px;
+					padding: 0 150px;
+				}
+				p {
+					margin: 0 0 20px;
+				}
+			}
+			.social {
+				text-align: center;
+				@include breakpoint(ten) {
+					text-align: left;
+					left: 50px;
+					padding: 0 150px;
+				}
+			}
+		}
+		&.options {
+			.no-featured-image {
+				#headline-content {
+					max-width: 100%;
+				}
+			}
+		}
+	}
+
+}

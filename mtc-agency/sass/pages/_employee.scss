@@ -1,0 +1,403 @@
+.page-template-employee-landing {
+	#employee-headline {
+		text-align: center;
+		padding: 35px 0 15px;
+		@include breakpoint(ten) { padding: 125px 0; }
+		.title {
+			margin: 0 0 15px;
+			@include font-family($bold);
+			@include font(2.7, $black);
+		}
+		.subtitle {
+			@include font-family($light);
+			@include font(1.5, $black);
+		}
+	}
+	#employees {
+		margin: 20px;
+		padding: 0 0 30px;
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		@include breakpoint(ten) {
+			padding: 0 0 120px;
+			margin: 0 80px 10px;
+		}
+		.employee {
+			border-top: 18px solid $green;
+			padding: 0 0 142px;
+			width: 100%;
+			// @include breakpoint(mobileL) {
+			// 	margin: 8px 8px 40px;
+			// 	width: calc(25% - 16px);
+			// }
+			@include breakpoint(mobileL) {
+				margin: 8px 8px 40px;
+				width: calc((100% / 3) - 16px);
+			}
+			@include breakpoint(twelve) {
+				margin: 8px 8px 40px;
+				width: calc(25% - 16px);
+			}
+			a {
+				display: block;
+				text-decoration: none;
+				position: relative;
+				.image-wrap {
+					padding: 3px 0 0;
+					position: relative;
+					.overlay {
+						position: absolute;
+						bottom: 0;
+						width: 100%;
+						height: 0;
+						background: rgba($green, .75);
+					}
+					img { width: 100%; }
+				}
+				.bottom-wrap {
+					position: absolute;
+					bottom: -140px;
+					width: 100%;
+					height: 142px;
+					background: $red;
+					.name-wrap {
+						position: absolute;
+						top: 0;
+						background: $white;
+						padding: 30px 15px 55px;
+						width: 100%;
+						@include box-sizing(border-box);
+						@include breakpoint(mobileL) { padding: 30px 15px 72px; }
+						// @include breakpoint(tablet) { padding: 30px 15px 55px; }
+						@include breakpoint(ten) { padding: 30px 15px 55px; }
+						h2 {
+							margin: 0 0 10px;
+							@include font-family($bold);
+							@include font(2.2, $black);
+							@include breakpoint(mobileL) {
+								margin: 0 0 5px;
+								@include font-size(1.4);
+							}
+							// @include breakpoint(tablet) {
+							// 	margin: 0 0 10px;
+							// 	@include font-size(2.2);
+							// }
+							@include breakpoint(ten) {
+								margin: 0 0 10px;
+								@include font-size(2.2);
+							}
+						}
+						.position {
+							@include font-family($light);
+							@include font(1.5, $black);
+							@include breakpoint(mobileL) { @include font-size(1.1); }
+							// @include breakpoint(tablet) { @include font-size(1.5); }
+							@include breakpoint(ten) { @include font-size(1.5); }
+						}
+					}
+				}
+				.bio-link {
+					position: absolute;
+					bottom: -123px;
+					right: 30px;
+					.link {
+						text-transform: lowercase;
+						@include font-family($light);
+						@include font(1.5, $black);
+						.icon-wrap {
+							vertical-align: middle;
+							position: relative;
+							border: 1px solid $black;
+							display: inline-block;
+							@include border-radius(50%);
+							@include square(30);
+							span {
+								position: absolute;
+								top: 50%;
+								margin-top: -5px;
+								right: 10px;
+								@include font-size(1);
+							}
+						}
+					}
+				}
+
+				// Employee Card Hover State;
+				&:hover {
+					cursor: pointer;
+					.image-wrap {
+						.overlay {
+							height: calc(100% - 3px);
+						}
+					}
+					.bottom-wrap {
+						bottom: -142px;
+						height: 200px;
+						.bio-link {
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+
+// Single Employee
+.single-employee {
+	#employee-header {
+		display: flex;
+		flex-direction: row-reverse;
+		flex-wrap: wrap;
+		.img-container, .content {
+			width: 100%;
+			@include breakpoint(mobileL) { width: 50%; }
+			// @include breakpoint(ten) { width: 50%; }
+		}
+		.img-container {
+			img {
+				width: 100%;
+			}
+		}
+		.content {
+			.content-outer-wrap {
+				.content-inner-wrap {
+					position: relative;
+					@include box-sizing(border-box);
+					overflow: hidden;
+					padding: 105px 20px 20px;
+					@include breakpoint(ten) {
+						padding: 45px;
+					}
+					#employee-link {
+						position: absolute;
+						top: 25px;
+						right: 25px;
+						@include breakpoint(ten) {
+							top: 40px;
+							right: 80px;
+						}
+						a {
+							display: block;
+							@include border-radius(50%);
+							border: 1px solid $gray;
+							text-decoration: none;
+							.icon-close {
+							  @include font(2.2, $gray);
+							  padding: 17px;
+							  display: block;
+							}
+							&:hover {
+							  cursor: pointer;
+								border: 1px solid $red;
+							  .icon-close {
+							    color: $red;
+							  }
+							}
+						}
+					}
+					#incrementor {
+						position: absolute;
+						top: 25px;
+						left: 25px;
+						@include breakpoint(ten) {
+	 						top: 40px;
+							left: 50px;
+						}
+						.button {
+							position: relative;
+							border: 1px solid $gray;
+							display: inline-block;
+							@extend .ease;
+							@include border-radius(50%);
+							a {
+								color: $gray;
+								display: block;
+								padding: 23px;
+								text-decoration: none;
+								text-align: center;
+								@include square(56);
+								@include box-sizing(border-box);
+								span {
+									position: absolute;
+									@include font-size(1);
+								}
+							}
+
+							&.next {
+								span {
+									right: 23px;
+								}
+							}
+							&.prev {
+								span {
+									@include transform(rotate(180deg));
+									left: 23px;
+								}
+							}
+							// Hover state
+							&:hover {
+								border: 1px solid $black;
+								a { color: $black; }
+								&.next span { right: 20px; }
+								&.prev span { left: 20px; }
+							}
+							&:first-of-type {
+								margin: 0 20px 0 0;
+							}
+						}
+					}
+					.circle {
+						display: none;
+						@include breakpoint(ten) {
+							display: block;
+							position: absolute;
+							top: 50%;
+							right: 0;
+							margin-top: -82px;
+							margin-right: -92px;
+							background: $green;
+							@include border-radius(50%);
+							@include square(164);
+						}
+					}
+					h1.name {
+						margin: 0 0 10px;
+						@include font-family($bold);
+						@include font(3.4, $black);
+						@include breakpoint(ten) {
+							@include font-size(5.9);
+						}
+					}
+					h2.position {
+						@include font-family($light);
+						@include font(1.8, $black);
+						@include breakpoint(ten) {
+							@include font-size(2.9);
+						}
+					}
+					.social {
+					  padding: 20px 0 0 0;
+					  @include breakpoint(ten) {
+					  	padding: 40px 0 0 0;
+					  }
+					  .icon {
+					    color: $darkgray;
+					    .fa-stack-1x { color: $white; }
+					    &:hover { color: $red; }
+					  }
+					}
+				}
+			}
+		}
+	}
+	#employee-quote {
+		background: $red;
+		padding: 20px;
+		text-align: center;
+		@include font-family($med);
+		@include font(1.6, $white);
+		line-height: 1.5;
+		@include breakpoint(ten) {
+			@include font-size(2.7);
+			padding: 90px 0;
+		}
+	}
+	#employee-content {
+		padding: 20px;
+		@include breakpoint(ten) {
+			padding: 90px 0;
+		}
+		.headline {
+			margin: 0 0 10px; 
+			@include font-family($bold);
+			@include font(2.2, $black);
+		}
+		.content {
+			@include font-family($light);
+			@include font(1.5, $black);
+			line-height: 1.5;
+			p { margin: 0 0 20px; }
+		}
+	}
+}
+
+// Employee Homepage Section
+#b-roll-carousels {
+	background: $offwhite;
+	margin: 25px auto 0;
+	padding: 25px;
+	text-align: center;
+	@include breakpoint(ten) {
+		padding: 85px 0;
+	}
+	h2.title {
+		margin: 0 0 25px;
+		@include font-family($bold);
+		@include font(4, $black);
+	}
+	.sub-headline {
+		@include font-family($light);
+		@include font(1.5, $black);
+	}
+	.carousels-wrapper {
+		padding: 25px 0;
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		margin: 0 auto;
+		max-width: 1440px;
+		@include breakpoint(ten) {
+			padding: 75px 0 55px;
+		}
+		.carousel {
+			display: none;
+			width: calc(100%  - 40px);
+			display: inline-block;
+			position: relative;
+			margin: 0 20px;
+			& > img,
+			& > div {
+				position: absolute;
+				top: 0; 
+				left: 0;
+				display: none;
+			}
+			div {
+				@include border-radius(50%);
+		    padding: 50% 0;
+		    height: 0;
+		    background-size: contain;
+		    width: 100%;
+		    background-size: cover;
+		    background-position: center;
+		    background-repeat: no-repeat;
+			}
+			&.row-2, &.row-3 { display: none; }
+			@include breakpoint(mobileL){
+				&.row-2, &.row-3 { display: block; }
+				width: calc((100% / 3) - 40px);
+			}
+		}
+	}
+	.links-wrapper {
+		.link {
+			margin: 15px 0;
+			@include breakpoint(mobileL) {
+				margin: 15px 5px;
+				display: inline-block;
+			}
+			@include breakpoint(ten) {
+				margin: 0 5px;
+			}
+			a {
+				@include font-family($light);
+				@include font(1.5, $white);
+				background: $red;
+				min-width: 110px;
+				@include breakpoint(tablet) { min-width: auto; }
+			}
+		}
+	}
+}

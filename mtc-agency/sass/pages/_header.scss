@@ -1,0 +1,220 @@
+#header {
+  border-bottom: 1px solid $lightgray;
+  background: $white;
+  position: fixed;
+  z-index: 2;
+  width: 100%;
+  top: 0;
+  height: 85px;
+  @include breakpoint(tablet) { height: 56px; }
+  .logo {
+    position: absolute;
+    // right: 0;
+    left: 10px;
+    width: 300px;
+    // margin: 0 auto;
+    // text-align: center;
+    top: 30px;
+    @include breakpoint(tablet) {
+      top: 16px;
+      left: 30px;
+    }
+    @include breakpoint(ten) {
+      left: 80px;
+    }
+    a {
+      text-decoration: none;
+      span {
+        @include font(1.8, $black);
+        @include breakpoint(tablet) {
+          @include font-size(2.2);
+        }
+      }
+      &:hover {
+        span { color: $red; }
+      }
+    }
+  }
+}
+
+#nav-trigger {
+  right: 40px;
+  top: 30px;
+  position: fixed;
+  z-index: 3;
+  cursor: pointer;
+  height: 20px;
+  width: 25px;
+  @include breakpoint(tablet) {
+    top: 16px;
+  }
+  @include breakpoint(ten) {
+    right: 80px;
+  }
+  .trigger-wrap {
+    position: relative;
+    span {
+      margin: 0 auto;
+      display: block;
+      top: 8px;
+      height: 4px;
+      position: absolute;
+      background: $red;
+      opacity: 1;
+      width: 25px;
+      @include transition(all .25s ease-in-out);
+      &:first-child { top: 0px; }
+      &:last-child { top: 16px; }
+    }
+  }
+
+  &:hover {
+    .trigger-wrap {
+      span { background: $black; }
+    }
+  }
+
+  &.scroll {
+    &:hover {
+      .trigger-wrap {
+        span { background: $red; }
+      }
+    }
+  }
+}
+
+#navigation-container {
+  z-index: 2;
+  background: rgba($red,.92);
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  .nav-logo {
+    position: absolute;
+    top: 30px;
+    left: 10px;
+    z-index: 2;
+    @include breakpoint(tablet) {
+      top: 16px;
+      left: 30px;
+    }
+    @include breakpoint(ten) {
+      top: 48px;
+      left: 80px;
+    }
+    a {
+      text-decoration: none;
+      span {
+        @include font(1.8, $white);
+        @include breakpoint(tablet) {
+         @include font-size(2.2);
+        }   
+        @include breakpoint(ten) {
+         @include font-size(4); 
+        }
+      }
+      &:hover {
+        span { color: $black; }
+      }
+    }
+  }
+  .nav-content-wrap {
+    position: absolute;
+    right: 30px;  
+    top: 15px;
+    @include breakpoint(ten) {
+      right: 60px;
+      top: 40px;
+    }
+    // Close button
+    #close-wrap {
+      position: absolute;
+      right: 0;
+      top: 0;
+      background: $white;
+      @include border-radius(50%);
+      border: 2px solid $white;
+      .icon-close {
+        @include font(2.2, $red);
+        padding: 11px;
+        display: block;
+      }
+      &:hover {
+        cursor: pointer;
+        background: $red;
+        .icon-close {
+          @include transform(rotate(90deg));
+          color: $white;
+        }
+      }
+    }
+  }
+
+  // Menu's Active State
+  &.open {
+    right: 0;
+    opacity: 1;
+  }
+}
+
+// Navigation 
+#navigation-wrapper {
+  padding: 90px 45px 0 0;
+  width: 300px;
+  text-align: right;
+  
+  @include breakpoint(ten) {
+    padding: 90px 115px 0 0;
+  }
+  // Main Navigation
+  #navigation {
+    ul {
+      li {
+        margin: 0 0 15px;
+        a {
+          text-decoration: none;
+          @include transition(all .25s ease-in-out);
+          @include font-family($bold);
+          @include font(5, $white);
+          &:hover { color: $black; }
+        }
+        &:last-of-type { margin: 0; }
+        @include breakpoint(ten) {
+          margin: 0 0 30px;
+          a { @include font-size(7); }
+        }
+      } 
+    }
+  }
+
+  // Secondary Navigation
+  #secondary-navigation {
+    padding: 35px 0 0 0;
+    @include breakpoint(ten) { padding: 55px 0 0 0; }
+    ul {
+      li {
+        margin: 0 0 10px;
+        a {
+          text-decoration: none;
+          @include transition(all .25s ease-in-out);
+          @include font-family($bold);
+          @include font(2.2, $white);
+          &:hover { color: $black; }
+        }
+        &:last-of-type { margin: 0; }
+      } 
+    }
+  }
+  .social {
+    padding: 35px 0 0 0;
+    @include breakpoint(ten) { padding: 55px 0 0 0; }
+    .icon {
+      color: $white;
+      .fa-stack-1x { color: $red; }
+      &:hover { color: $black; }
+    }
+  }
+}

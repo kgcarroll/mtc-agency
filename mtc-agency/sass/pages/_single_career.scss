@@ -1,0 +1,83 @@
+#career{
+
+	.content{
+		.headline-container{
+			.wrapper{
+				.no-featured-image{
+			    height: 95px;
+			    @include breakpoint(ten){
+			    	height:300px;
+			    }
+					#headline-content{
+						//text-align: center;
+						position:relative;
+						height: 100%;
+					}
+					.circle{
+				    @include breakpoint(ten){
+				    	margin-top: -47px;
+				    }
+					}
+				}
+			}
+		} 
+
+		.career-wrapper{
+			border-top: 2px solid $gray;
+			padding: 60px 0 0;
+			margin: 0 20px;
+			display: flex;
+			justify-content:center;
+    	flex-direction: column;
+			@include breakpoint(ten) {
+		    flex-direction: row;
+				margin: 0 80px;
+			}
+			.career-left{
+				width:100%;
+				@include breakpoint(ten) {
+					width:50%;
+				}
+				.copy{
+					padding: 0 0 40px 0;
+					@include font-family($light);
+					@include font(1.5, $black);
+					line-height: 1.5;
+					@include breakpoint(ten){
+						padding: 0 40px 40px 40px;
+					}
+					h2{ font-size:1.5em; margin: 0 0 10px; }
+					h3{ font-size:1.17em; margin: 0 0 10px;}
+					ul{
+						list-style: inherit;
+						padding: 0 0 10px;
+						li{
+							line-height: 2;
+							margin-left: 20px;
+						}
+					}
+					strong{
+						font-weight:bold;
+					}
+					p{
+						margin: 0 0 20px;
+					}
+					a{
+
+					}
+				}
+			}
+			.career-right{
+				width: 90%;
+    		margin: 0 auto;
+				@include breakpoint(ten) {
+					width:50%;
+				}
+			}
+		}
+
+	}
+
+}
+
+

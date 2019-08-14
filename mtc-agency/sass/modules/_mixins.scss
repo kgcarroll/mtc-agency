@@ -1,0 +1,89 @@
+@mixin breakpoint($media) {
+  $mobile:  "only screen and (min-width: 320px)"; 
+  $mobileL: "only screen and (min-width: 480px)";
+  $five: "only screen and (min-width: 580px)";
+  $six: "only screen and (min-width: 680px)";
+  $tablet: "only screen and (min-width: 768px)";
+  $ten: "only screen and (min-width: 1024px)";
+  $twelve: "only screen and (min-width: 1260px)";
+  $fourteen: "only screen and (min-width: 1440px)";
+  $sixteen: "only screen and (min-width: 1680px)";
+  $nineteen: "only screen and (min-width: 1920px)";
+
+  $handheld-size: "only screen and (max-width: 480px)";
+  $wide-handheld-size: "only screen and (min-width: 481px) and (max-width: 767px)";
+  $tablet-small-size: "only screen and (min-width: 768px) and (max-width: 800px)";
+  $tablet-small-size-landscape: "only screen and (min-width: 768px) and (max-width: 800px) and (orientation: landscape)";
+  $tablet-size: "only screen and (min-width: 801px) and (max-width: 1024px)";
+  $tablet-size-landscape: "only screen and (min-width: 801px) and (max-width: 1024px) and (orientation: landscape)";
+  $desktop-small-size: "only screen and (min-width: 1025px) and (max-width: 1430px)";
+  $all-mobile-sizes: "only screen and (max-width: 1024px)"; /*from tablets to phones*/
+
+
+  @if $media == mobile { @media #{$mobile}{ @content; } }
+  @if $media == mobileL { @media #{$mobileL}{ @content; } }
+  @if $media == five { @media #{$five}{ @content; } }
+  @if $media == six { @media #{$six}{ @content; } }
+  @if $media == tablet { @media #{$tablet}{ @content; } }
+  @if $media == ten { @media #{$ten}{ @content; } }
+  @if $media == twelve { @media #{$twelve}{ @content; } }
+  @if $media == fourteen { @media #{$fourteen}{ @content; } }
+  @if $media == sixteen { @media #{$sixteen}{ @content; } }
+  @if $media == nineteen { @media #{$nineteen}{ @content; } }
+
+
+  @if $media == handhelds {
+    @media #{$handheld-size}{ @content; }
+  }
+  @else if $media == handhelds-landscape {
+    @media  #{$handheld-landscape-size} { @content; }
+  }
+  @else if $media == wide-handhelds {
+    @media  #{$wide-handheld-size} { @content; }
+  }
+  @else if $media == wide-handhelds-landscape {
+    @media  #{$wide-handheld-landscape-size} { @content; }
+  }
+  @else if $media == tablets {
+    @media #{$tablet-size} { @content; }
+  }
+  @else if $media == tablets-landscape {
+    @media #{$tablet-size-landscape} { @content; }
+  }
+  @else if $media == tablets-small {
+    @media #{$tablet-small-size} { @content; }
+  }
+  @else if $media == tablets-small-landscape {
+    @media #{$tablet-small-size-landscape} { @content; }
+  }
+  @else if $media == all-mobile-devices{
+    @media #{$all-mobile-sizes} { @content;}
+  }
+  @else if $media == desktops-small {
+    @media #{$desktop-small-size} { @content; }
+  }
+}
+
+// Font-size Mixin
+@mixin font-size($sizeValue: 2.6) {
+  font-size: ($sizeValue * 10) + px;
+  font-size: $sizeValue + rem;
+}
+
+// Font Mixin
+@mixin font($size,$color) {
+  @include font-size($size);
+  color: $color;
+  line-height: 1;
+}
+
+@mixin font-family($family) {
+  font: {
+    family: $family;
+  }
+}
+
+@mixin square($size) {
+  height: $size + px;
+  width: $size + px;
+}

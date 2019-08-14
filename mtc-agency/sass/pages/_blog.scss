@@ -1,0 +1,620 @@
+#post-attribution {
+	margin: 0 0 25px;
+	padding: 0 20px;
+	text-align: center;
+	@include breakpoint(ten) {
+		padding: 0;
+		margin: 0 0 70px;
+	}
+	.profile-photo {
+		display: inline-block;
+		border-top: 5px solid $green;	
+		margin: 0 0 25px;
+		img {
+			margin: 4px 0 0;
+		}
+	}
+	.author-info {
+		span {
+			@include font-family($light);
+			@include font(1.5, $darkgray);
+		}
+		.name, .position {
+			display: block;
+			@include breakpoint(ten) {
+				display: inline-block;
+			}
+		}
+		.comma {
+			display: none;
+			@include breakpoint(ten) {
+				display: inline-block;
+			}
+		}
+		.link {
+			margin: 15px 0 0;
+			display: none;
+			@include breakpoint(tablet) { display: block; }
+			a {
+				@include font-family($light);
+				@include font(1.5, $red);
+				padding: 0 60px 0 0;
+				@include breakpoint(ten) {
+					padding: 0 75px 0 30px;	
+				}
+				.icon-arrow {
+					color: $red;
+					top: 2px;
+				}
+			}
+			&.standard {
+				display: block;
+				@include breakpoint(tablet) { display: none; }
+				a {
+					background: $red;
+					color: $white;
+					padding: 15px 60px 15px 15px;	
+					@include breakpoint(ten) { padding: 20px 75px 20px 30px; }
+					.icon-arrow {
+						color: $white;
+						top: 15px;
+					}
+				}
+			}
+		}
+	}
+}
+
+.blog, .category, .archive {
+	.headline-container {
+		.wrapper {
+			.no-featured-image {
+				height: auto;
+				@include breakpoint(ten) {
+					height: 300px;
+				}
+				#headline-content {
+					padding: 40px 0 20px;
+					margin: 0;
+					position: relative;
+					@include breakpoint(ten) {
+						position: absolute;
+						margin-top: -50px;
+						top: 50%;
+						padding: 0 100px;
+					}
+				}
+			}
+		}
+	}
+}
+
+.category-dropdown {
+	margin: 0 auto;
+	width: 220px;
+	@include breakpoint(ten) {
+		margin: 0 0 0 80px;		
+	}
+	select#cat {
+		width: 100%;
+		border: 2px solid $gray;
+		padding: 11px;
+		@include border-radius(0);
+		@include appearance(none);
+		@include font-family($med);
+		@include font(1.5, $gray);
+		@include transition(all .25s ease-in-out);
+		background: url('../images/select.png') right center no-repeat transparent;
+		&:hover {
+			background: url('../images/select-hover.png') right center no-repeat transparent;
+		}
+	}
+}
+
+#featured-post {
+	.wrapper {
+		padding: 20px;
+		@include breakpoint(ten) {
+			padding: 0 80px;
+		}
+		h2.title {
+			margin: 0 0 30px;
+			padding: 30px 0 0;
+			@include font-family($bold);
+			@include font(4, $black);
+			text-align: center;
+			@include breakpoint(ten) {
+				text-align: left;
+			}
+		}
+		.post {
+			position: relative;
+			.overlay {
+				background: rgba($black, .25);
+				@extend %fill;
+				z-index: 2;
+			} 
+			.post-wrap {
+				background-size: cover;
+				background-position: center;
+		    background-repeat: no-repeat;
+		    width: 100%;
+		    height: 0;
+		    padding-top: 121.6%;
+				position: relative;
+				@include breakpoint(mobileL) { padding-top: 40.2%; }
+				@include breakpoint(ten) { padding-top: 56%; }
+				.post-content-container {
+					width: 100%;
+					padding: 20px;
+					@include box-sizing(border-box);
+					position: absolute;
+					bottom: 0;
+					left: 0;
+					z-index: 3;
+					@include breakpoint(ten) {
+						padding: 45px;
+					}
+					.post-title {
+						@include font-family($bold);
+						@include font(2.4, $white);
+						@include breakpoint(ten) {
+							@include font-size(3.9);
+						}
+					}
+					.post-headline {
+						margin: 10px 0 0;
+						@include font-family($med);
+						@include font(1.8, $white);
+						@include breakpoint(ten) {
+							margin: 20px 0 0;
+							@include font-size(2.6);
+						}
+					}
+					.link {
+						margin: 20px 0 0;
+						@include breakpoint(ten) {
+							margin: 35px 0 0;
+						}
+						a {
+							@include font-family($light);
+							@include font(1.5, $black);
+							background: $lightgray;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+#blog-posts {
+	position: relative;
+	margin: 40px 0 0;
+	@include breakpoint(ten) {
+		margin: 80px 0 0;
+	}
+	.shape {
+		display: none;
+		@include breakpoint(ten){
+			display: block;
+			position: absolute;
+			top: 0;
+			left: 0;
+			background: $red;
+			width: 47px;
+			height: 92px;
+		}
+	}
+	.wrapper {
+		position: relative;
+		margin: 0 20px;
+		// padding: 0 0 20px;
+		@include breakpoint(ten){
+			padding: 0 0 65px;
+			margin: 0 60px;
+		}
+		h2.title {
+			text-align: center;
+			@include font-family($bold);
+			@include font(4, $black);
+			@include breakpoint(mobileL) {
+				text-align: left;
+			}
+			@include breakpoint(ten) {
+				margin: 0 0 50px 20px;
+				padding: 30px 0 0;
+			}
+		}
+		.posts {
+			display: flex;
+			flex-direction: row;
+			flex-wrap: wrap;
+			.post {
+				padding: 25px 0 0;
+				width: 100%;
+				border-bottom: 1px solid $gray;
+				&:last-of-type { border-bottom: none; }
+				@include breakpoint(tablet) {
+					border-bottom: none;
+					width: 50%;
+				}
+				@include breakpoint(ten) { width: calc(100% / 3); }
+				.post-wrap {
+					// padding: 0 0 20px;
+					@include box-sizing(border-box);
+					@include breakpoint(tablet) {
+						padding: 20px;
+					}
+					.post-image {
+						img { width: 100%; }
+					}
+					.post-title {
+						margin: 30px 0 15px;
+						a {
+							text-decoration: none;
+							@include font-family($bold);
+							@include font(2.2, $black);
+							line-height: 1.5;
+						}
+					}
+					.posted-date {
+						margin: 0 0 15px;
+						@include font-family($med);
+						@include font(1.3, $red);
+					}
+					.excerpt {
+						margin: 0 0 25px;
+						@include font-family($light);
+						@include font(1.5, $black);
+						line-height: 1.5;
+						@include breakpoint(ten) {
+							margin: 0 0 25px;
+						}
+						a {
+							text-decoration: none;
+							color: $red;
+						}
+					}
+				}
+
+				@include breakpoint(tablet) {
+					// Add right border to every odd rows.
+					&:nth-child(odd) {
+						.post-wrap {
+							border-right: 1px solid $gray;
+						}
+					}
+					// Add top border to everything but the first two.
+					&:nth-child(n+3) {
+						margin: 25px 0 0;
+						border-top: 1px solid $gray;
+					}
+					&:last-child {
+						.post-wrap {
+							border-right: none;
+						}
+					}
+				}
+
+				@include breakpoint(ten) {
+					// Clear tablets rules
+					&:nth-child(odd) {
+						.post-wrap {
+							border-right: none;
+						}
+					}
+					&:nth-child(n+3) {
+						margin: 0;
+						border-top: none;
+					}
+
+					// Add left/right border to every 2nd, 5th, 8th - repeating.
+					&:nth-child(3n+2) {
+						.post-wrap {
+							border-left: 1px solid $gray;
+							border-right: 1px solid $gray;
+						}
+					}
+
+					// Add top border and margin to everything but the first three.
+					&:nth-child(n+4) {
+						margin: 25px 0 0;
+						border-top: 1px solid $gray;
+					}
+					&:last-child {
+						.post-wrap {
+							border-right: none;
+						}
+					}
+				}
+				&:last-of-type {
+					.post-wrap {
+						.excerpt {
+							margin: 0;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+// Employee Blog Section overrides.
+.single-employee {
+	#blog-posts {
+		.shape {
+			@include border-radius(50%);
+			@include square(96);
+			margin-left: -48px;
+			background: $green;
+		}
+	}
+}
+
+// Hopepage Blog Section overrides.
+.home {
+	#blog-posts {
+		margin: 35px 0 0;
+		@include breakpoint(ten) {
+			margin: 95px 0 0;
+		}
+		.shape {
+			@include border-radius(50%);
+			@include square(96);
+			margin-left: -48px;
+			background: $green;
+		}
+		.wrapper {
+			border-bottom: none;
+			padding: 0 0 20px;
+			text-align: center;
+			@include breakpoint(ten){
+				padding: 0 0 55px;
+			}
+			.posts {
+				margin: 0 0 20px;
+				@include breakpoint(ten) {
+					margin: 0;
+				}
+				.post {
+					text-align: left;
+					display: none;
+					border-bottom: none;
+					&:first-of-type { display: block; }
+					@include breakpoint(tablet) {
+						display: block;
+						&:last-of-type { display: none; }
+					}
+					@include breakpoint(ten) {
+						&:last-of-type { display: block; }
+					}
+				}
+			}
+			.link {
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				margin: 20px auto 0;
+				@include breakpoint(tablet) {
+					left: auto;
+					right: 20px;
+					margin: 20px 0 0;
+				}
+				a {
+					@include font-family($light);
+					@include font(1.5, $black);
+					background: $lightgray;
+				}
+			}
+		}
+	}
+}
+
+.single-post {
+	.headline-container {
+		margin: 0 0 35px;
+		@include breakpoint(ten) {
+			margin: 0 0 85px;
+		}
+		&.blog {
+			.featured-image {
+				margin: 50px 0 0;
+          height: auto;
+          height: 164px;
+        @include breakpoint(twelve){
+        	margin: 0;
+          padding: 100px 0;
+        }
+				#headline-content {
+					position: initial; top: initial; left: initial; max-width: initial; // Reset the stuff we don't need.
+					text-align: center; // Add the new.
+					.headline {
+						@include font-size(3.9);
+						color: $black;
+					}
+					.subheadline {
+						@include font-size(2.6);
+						margin: 10px 0 0;
+						color: $black;
+					}
+				}
+			}
+			.circle { left: 0; }
+			.square {
+				display: none;
+				@include breakpoint(ten) {
+					right: -10px;
+					position: absolute;
+					width: 52px;
+					height: 152px;
+					top: 50%;
+					margin: -76px 0 0;
+					background: $red;
+					display: block;
+				}
+			}
+		}
+	}
+
+	#blog-content {
+		.content-wrap {
+			margin: 0 0 70px;
+			.content-headline {
+				margin: 0 0 10px;
+				@include font-family($bold);
+				@include font(2.2, $black);
+			}
+			&.initial, 
+			&.content,
+			&.image-content {
+				.copy {
+					@include font-family($light);
+					@include font(1.5, $black);
+					line-height: 1.5;
+					p {
+						margin: 0 0 20px;
+						img { width: 100%; height: auto; }
+					}
+
+					strong {
+						font-weight: 700;
+						@include font-family($bold);
+					}
+					em { font-style: italic; }
+					a {
+						color: $red;
+						text-decoration: none;
+						&:hover {
+							text-decoration: underline;
+						}
+					}
+
+					// Lists
+					ul, ol {
+						padding: 0 0 0 20px;
+						li {
+							list-style-type: disc;
+							list-style-position: inside;
+							margin: 0 0 15px;
+						}
+					}
+
+					ol li {
+						list-style-type: decimal;
+						margin: 0 0 15px;
+					}		
+				}
+			}
+			&.image {
+				img { width: 100%; }
+			}
+
+			&.image-content, &.double-image {
+				@include breakpoint(tablet) {
+					display: flex;
+					flex-direction: row;
+					flex-wrap: wrap;
+					.content-headline {
+						width: 100%;
+					}
+					.headline-container {
+						width: 100%; 
+					}
+				.left, .right {
+						width: 48%;
+						img { width: 100%; }
+					}
+
+					.left { padding: 0 1% 0 0; }
+					.right { padding: 0 0 0 1%; }
+				}
+			}
+		}
+	}
+	.mtc-social {
+		margin: 15px 0 35px;
+		text-align: center;
+		@include breakpoint(ten) {
+			text-align: left;
+			margin: 0 0 100px;
+		}
+		.title {
+			margin: 0 0 15px;
+			@include font-family($bold);
+			@include font(1.7, $black);
+			@include breakpoint(ten) {
+				margin: 0 0 30px;
+			}
+		}
+		.mtc-share-link {
+			margin: 0 0 10px;
+			@extend .ease;
+			display: inline-block;
+			border: 2px solid $gray;
+		  color: $red;
+		  width: 165px;
+		  padding: 10px;
+		  text-align: center;
+		  .fa-stack-1x { color: $white; }
+		  &:hover { color: $black; }
+		  @include breakpoint(tablet) { margin: 0 10px 0 0; }
+		  @include breakpoint(ten) { margin: 0 20px 0 0; }
+		}
+	}
+}
+
+// Blog WYSIWYG styles
+.entry-content img {
+	margin: 0 0 1.5em 0;
+}
+.alignleft, img.alignleft {
+	margin: 0 1.5em 1.5em 0;
+	display: inline;
+	float: left;
+}
+.alignright, img.alignright {
+	margin: 0 0 1.5em 1.5em;
+	display: inline;
+	float: right;
+}
+.aligncenter, img.aligncenter {
+	margin-right: auto;
+	margin-left: auto;
+	display: block;
+	clear: both;
+}
+.wp-caption {
+	margin-bottom: 1.5em;
+	text-align: center;
+	padding-top: 5px;
+}
+.wp-caption img {
+	border: 0 none;
+	padding: 0;
+	margin: 0;
+}
+.wp-caption p.wp-caption-text {
+	line-height: 1.5;
+	font-size: 10px;
+	margin: 0;
+}
+.wp-smiley {
+	margin: 0 !important;
+	max-height: 1em;
+}
+blockquote.left {
+	margin-right: 20px;
+	text-align: right;
+	margin-left: 0;
+	width: 33%;
+	float: left;
+}
+blockquote.right {
+	margin-left: 20px;
+	text-align: left;
+	margin-right: 0;
+	width: 33%;
+	float: right;
+}

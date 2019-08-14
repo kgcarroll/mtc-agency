@@ -1,0 +1,435 @@
+// Case Studies Landing page (Our Work)
+// Homepage Featured Case Study
+#home,
+.page-template-portfolio {
+	#content-container {
+		.case-study {
+			position: relative;
+			margin: 10px;
+			width: 100%;
+			img { width: 100%; }
+			.content-wrapper {
+				.headline-wrapper {
+					position: absolute;
+					text-align: center;
+					top: 35%;
+					margin-top: -55px;
+					padding: 20px;
+					right: 0;
+					left: 0;
+					@include breakpoint(mobileL) {
+						margin-top: -25px;
+					}
+					@include breakpoint(tablet) {
+						right: auto;
+						top: 40%;
+						text-align: left;
+						left: 75px;
+						max-width: 450px;
+					}
+					@include breakpoint(twelve) {
+						top: 50%;
+						max-width: 600px;
+					}
+
+					.shape {
+						display: none;
+						@include breakpoint(tablet) {
+							display: block;
+							position: absolute;
+							width: 40px;
+							height: 100px;
+							left: -75px;
+						}
+					}
+					h2 {
+						@include font-family($bold);
+						@include font(4.1, $white);
+						line-height: 1.25;
+						@include breakpoint(mobileL) {
+							@include font-size(2.4);
+						}
+						@include breakpoint(tablet) {
+							@include font-size(3.2);
+						}
+						@include breakpoint(ten) {
+							@include font-size(4.1);
+						}
+					}
+					h3 {
+						margin: 35px 0 0;
+						@include font-family($light);
+						@include font(1.5, $white);
+						line-height: 1.5;
+						display: none; 
+						@include breakpoint(tablet) {
+							margin: 20px 0 0;
+							display: block;
+						}
+						@include breakpoint(ten) {
+							margin: 35px 0 0;
+						}
+					}
+					.link {
+						margin: 40px 0 0;
+						@include breakpoint (mobileL) {
+							margin: 30px 10px 0;
+							display: inline-block;
+						}
+						@include breakpoint (tablet) {
+							display: block;
+							margin: 30px 0 0;
+						}
+						@include breakpoint (ten) { margin: 40px 0 0; }
+						a {
+							@include font-family($light);
+							@include font(1.5, $white);
+						}
+						&.mobile {
+							@include breakpoint (ten) { display: none; }
+						}
+					}
+				}
+			}
+			&.small {
+				@include breakpoint(ten) {
+					width: calc(50% - 20px);
+				}
+				&:first-of-type {
+					margin: 10px 10px 10px 5px;
+				}
+				&:last-of-type {
+					margin: 10px 5px 10px 10px;
+				}
+				.content-wrapper {
+					.headline-wrapper {
+						@include breakpoint(ten) {
+							top: auto;
+							bottom: 40px;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+// Homepage override
+#home #content-container {
+	#case-studies {
+		.case-studies-wrap {
+			.slick-slide { padding: 0;  }
+			.slick-arrow {
+				position: absolute;
+				top: 35px;
+				background: none;
+				z-index: 2;
+				background: $white;
+				border: 1px solid $gray;
+				@extend .ease;
+				@include square(56);
+				@include border-radius(50%);
+				@include appearance(none);
+				@include breakpoint(ten) { top: 90px; }
+				span {
+					position: absolute;
+					color: $darkgray;
+					@include font-size(1);
+					padding: 24px;
+				}
+				&.slick-prev {
+					left: 35px;
+					@include breakpoint(ten) { left: 80px; }
+					span {
+						@include transform(rotate(180deg));
+						top: 0;
+						left: -2px;
+					}
+				}
+				&.slick-next {
+					right: 35px;
+					@include breakpoint(ten) {
+						right: auto;
+						left: 151px;
+					}
+					span {
+						top: -1px;
+						left: 0;
+					}
+				}
+
+				// Hover
+				&:hover {
+					background: $gray;
+					span {
+						cursor: pointer;
+						color: $black;
+					}
+					&.slick-next {
+						span { left: 3px; }
+					}
+					&.slick-prev {
+						span { left: -5px; }
+					}
+				}
+			}
+			.case-study {
+				.content-wrapper {
+					.shape {
+						display: none;
+						@include breakpoint(ten){
+							display: block;
+							width: 50px;
+							left: -85px;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+// Landing page override:
+
+.page-template-portfolio {
+	#content-container {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+	}
+}
+
+// SINGLES
+.single-case_study {
+	// Headline overrides.  This only overrides attributes set in _classes.scss
+	.headline-container {
+		.wrapper {
+			margin: 0;
+			.featured-image {
+				.circle { // Not a circle for case studies, we make it a square.
+					@include border-radius(0);
+					height: 100px;
+					width: 50px;
+					margin-left: 0;
+
+				}
+			}
+		}
+	}
+
+	// Content sections
+	.content-row {
+
+		// Text Areas
+		&.text-area,
+		&.split-text-area,
+		&.text-area-with-list {
+			max-width: 960px;
+			margin: 0 auto;
+			padding: 50px 20px;
+			@include breakpoint(ten) {
+				padding: 150px 0;
+			}
+			.topic {
+				@include font-family($bold);
+				@include font(1.4, $red);
+				text-transform: uppercase;
+			}
+			.headline {
+				margin: 20px 0;
+				@include font-family($bold);
+				@include font(2.2, $black);
+			}
+			.copy {
+				@include font-family($light);
+				@include font(1.5, $black);
+				line-height: 1.5;
+				em {
+					font-style: italic;
+				}
+			}
+		}
+
+		&.split-text-area {
+			.copy {
+				@include breakpoint(ten) {
+					display: flex;
+					flex-direction: row;
+					flex-wrap: wrap;
+				}
+				.left, .right {
+					@include box-sizing(border-box);
+					@include breakpoint(ten) {
+						width: 50%;
+					}
+				}
+				.left {
+					margin: 0 0 20px;
+					@include breakpoint(ten) {
+						margin: 0;
+						padding: 0 4% 0 0;
+					}
+				}
+				.right { 
+					@include breakpoint(ten) { padding: 0 0 0 4%; }
+				}
+				
+			}
+		}
+		&.text-area-with-list {
+			@include breakpoint(ten) {
+				display: flex;
+				flex-direction: row-reverse;
+				flex-wrap: wrap;
+			}
+			.text-area {
+				@include breakpoint(ten) {
+					width: calc(100% - 300px);
+					padding: 0 75px 0 0;
+				}
+			}
+			.list-items {
+				margin: 0 0 35px;
+				@include breakpoint(ten) {
+					margin: 0;
+					width: 225px;
+				}
+				.list-header {
+					@include font-family($bold);
+					@include font(1.8, $red);
+					margin: 0 0 25px;	
+				}
+				ul.list {
+					li {
+						@include font-family($light);
+						@include font(1.5, $black);
+						padding: 0 0 0 15px;
+						margin: 0 0 25px;
+						background: url('../images/list-item.png') left center no-repeat transparent;
+					}
+				}
+			}
+		}
+
+		// Static Image
+		&.static-image {
+			// display: flex;
+			img { width: 100%; display: block;}
+		}
+		
+		// Static Image Grid
+		&.image-grid {
+			// Two image layout
+			.img-layout-2 {
+				display: flex;
+				flex-direction: row;
+				flex-wrap: wrap;
+				img {
+					align-self: flex-start;
+					width: 100%;
+					@include breakpoint(ten) {
+						width: 50%;
+					}
+				}
+			}
+
+			// Three image layout
+			.img-layout-3 {
+				position: relative;
+				img {
+					width: 100%;
+					align-self: flex-start;
+					@include breakpoint(ten) {
+						width: 50%;
+					}
+				}
+				.img-1, .img-2 {
+					display: flex;
+				}
+				.img-3 {
+					@include breakpoint(ten) {
+						position: absolute;
+						right: 0;
+						top: 0;
+						height: 100%;
+					}
+				}
+			}
+		}
+
+		// Two image layout
+		.img-layout-4 {
+			display: flex;
+			flex-direction: row;
+			flex-wrap: wrap;
+			img {
+				align-self: flex-start;
+				width: 100%;
+				@include breakpoint(tablet) { width: 50%; }
+				@include breakpoint(ten) { width: 25%; }
+			}
+		}
+
+		// Gallery
+		&.gallery {
+			position: relative;
+			padding-bottom: 68px;
+			@include breakpoint(ten) {
+				padding-bottom: 0;
+			}
+
+			.slick-arrow {
+				position: absolute;
+				background: $white;
+				height: 56px;
+				width: 56px;
+				z-index: 2;
+				margin: 0;
+				top: auto;
+				bottom: 0;
+				border: 1px solid $gray;
+				@include border-radius(50%);
+				@include breakpoint(tablet) {
+					bottom: auto;
+					top: 50%;
+					margin-top: -26px;
+				}
+				.icon-gallery-nav {
+					position: absolute;
+				}
+				&:hover {
+					cursor: pointer;
+				}
+			}
+			.slick-next {
+				left: 107px;
+				@include breakpoint(tablet) {
+					left: auto;
+					right: 50px;
+				}
+				@include breakpoint(ten) { right: 90px; }
+				.icon-gallery-nav {
+					top: 27px;
+					right: 23px;
+				}
+				&:hover {
+					.icon-gallery-nav { right: 20px; }
+				}
+			}
+			.slick-prev {
+				left: 25px;
+				@include breakpoint(tablet) { left: 50px; }
+				@include breakpoint(ten) { left: 90px; }
+				.icon-gallery-nav {
+					@include transform(rotate(180deg));
+					top: 29px;
+					left: 23px;
+				}
+				&:hover {
+					.icon-gallery-nav { left: 20px; }
+				}
+			}
+		}
+	}
+}
+

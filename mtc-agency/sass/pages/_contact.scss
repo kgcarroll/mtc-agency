@@ -1,0 +1,212 @@
+.contact-wrapper {
+	border-top: 2px solid $gray;
+	padding: 60px 0 0;
+	margin: 0 20px;
+	display: flex;
+	flex-direction: row-reverse;
+	flex-wrap: wrap;
+	@include breakpoint(ten) {
+		margin: 0 80px;
+	}
+	.contact-left {
+		@include breakpoint(ten) {
+			width: calc(80% - 370px);
+		}
+		.copy {
+			@include font-family($light);
+			@include font(1.5, $black);
+			line-height: 1.5;
+		}
+		.form {
+			margin: 30px 0 0;
+			@include breakpoint(ten) {
+				margin: 60px 0 0;
+				max-width: 75%;
+			}
+		}
+	}
+	.contact-right {
+		width: 100%;
+		margin: 0 0 25px;
+		@include breakpoint(ten) {
+			margin: 0;
+			width: 370px;
+			padding: 0 6%;
+		}
+		.telephone, .social { display: inline-block; }
+		.telephone {
+			margin: 0 35px 0 0;
+			@include font-family($bold);
+			@include font(1.9, $black);
+			vertical-align: middle;
+			a {
+				color: $black;
+				text-decoration: none;
+				&:hover { color: $red; }
+			}
+		}
+		.social {
+		  .icon {
+		  	@include font-size(1.2);
+		    color: $darkgray;
+		    .fa-stack-1x { color: $white; }
+		    &:hover { color: $red; }
+		  }
+		}
+		.logo {
+			margin: 30px 0 10px;
+			a {
+				text-decoration: none;
+				span {
+					@include font(2, $black);
+				}
+				&:hover {
+					span { color: $red; }
+				}
+			}
+		}
+		.address {
+			margin: 0 0 30px;
+			a {
+				@include font-family($med);
+				@include font(1.5, $black);
+				line-height: 1.25;
+				text-decoration: none;
+				&:hover { color: $red; }
+				span.bottom {
+					display: block;
+				}
+			}
+		}
+		.details{
+			position:relative;
+	    padding: 15px 0;
+			@include font-family($med);
+			@include font(1.5, $black);
+			line-height: 1.25;
+			
+			strong{
+				font-weight:bold;
+			}
+			p{
+				margin: 0 0 20px;
+			}
+			.border-content{
+				z-index:-1;
+				position:absolute;
+				top:0;
+				left:0;
+				width:80%;
+				height:100%;
+				border-bottom: 2px solid $gray;
+			}
+		}
+		#office-hours {
+			margin: 0 0 30px;
+			@include font-family($med);
+			@include font(1.5, $black);
+		}
+		.directions a {
+			@include font-family($med);
+			@include font(1.5, $red);
+			&:hover { text-decoration: none; }
+		} 
+	}
+}
+
+.page-template-thank-you {
+	.social {
+		margin: 25px 0 0;
+	  .icon {
+	  	@include font-size(1.2);
+	    color: $darkgray;
+	    .fa-stack-1x { color: $white; }
+	    &:hover { color: $red; }
+	  }
+	}
+}
+
+
+
+
+.frm_style_formidable-style.with_frm_style {
+	.form-field {
+		input[type="text"],
+		input[type="email"],
+		input[type="tel"] {
+			height: 40px;
+		}
+		input[type="text"],
+		input[type="email"],
+		input[type="tel"],
+		textarea {
+			@include appearance(none);
+			@include border-radius(0);
+			border: 2px solid $lightgray;
+			box-shadow: none;
+			&:focus {
+				outline: none;
+			}
+		}
+		label {
+			margin: 10px 0 0;
+			@include font-family($light);
+			@include font(1.3, $gray);
+			.frm_required { color: $gray; }
+		}
+	}
+	// Flex Handling
+	.flex-container {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		.form-field {
+			width: calc(25% - 5px);
+			&:first-of-type {
+				margin: 0 10px 0 0;
+				width: calc(50% - 10px);
+			}
+			&:last-of-type {
+				margin: 0 0 0 10px;
+			}
+		}
+	}
+
+	.is-required {
+		@include font-family($light);
+		@include font(1.3, $gray);
+	}
+	// Submit
+	.frm_submit {
+		text-align: right;
+		button {
+			position: relative;
+			background: $red;
+			border: none;
+			padding: 15px 60px 15px 20px;
+			@extend .ease;
+			@include border-radius(0);
+			@include appearance(none);
+			@include font-family($light);
+			@include font(1.5, $white);
+			span {
+				position: absolute;
+				right: 20px;
+				top: 15px;
+			}
+			&:hover {
+				background: $black;
+				color: $white;
+				span {
+					right: 17px;
+					color: $white;
+				}
+			}
+		}
+	}
+}
+
+.home .frm_forms {
+	max-width: 390px !important;
+ 	margin: 100px auto 0; 
+}

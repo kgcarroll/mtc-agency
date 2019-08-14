@@ -1,0 +1,273 @@
+#home-careers {
+	height: 0;
+	padding: 10.4% 20px;
+	background-size: cover;
+	background-repeat: no-repeat;
+	text-align: center;
+	@include box-sizing(border-box);
+	@include breakpoint(ten) {
+		padding: 10.4% 0;
+	}
+	.headline {
+		margin: 0 0 25px;
+		@include font-family($bold);
+		@include font(4, $black);
+	}
+	.subheadline {
+		max-width: 425px;
+		margin: 0 auto 45px;
+		@include font-family($light);
+		@include font(1.5, $black);
+		line-height: 1.5;
+	}
+	.link {
+		margin: 20px 0 0;
+		a {
+			@include font-family($light);
+			@include font(1.5, $black);
+			background: $white;
+		}
+	}
+}
+
+.gallery {
+	@extend .ease;
+	position: relative;
+	margin: 0 auto;
+	.slick-slide { padding: 0; }
+	.slick-arrow {
+		position: absolute;
+		top: 50%;
+		margin: -28px 0 0;
+		background: $white;
+		@include border-radius(50%);
+		height: 56px;
+		width: 56px;
+		z-index: 2;
+		.icon-gallery-nav {
+			position: absolute;
+			top: 50%;
+			margin-top: -5px;
+		}
+		&:hover {
+			cursor: pointer;
+		}
+	}
+	.slick-next {
+		right: 40px;
+		.icon-gallery-nav { right: 23px; }
+		&:hover {
+			.icon-gallery-nav { right: 20px; }
+		}
+	}
+	.slick-prev {
+		left: 40px;
+		.icon-gallery-nav {
+			@include transform(rotate(180deg));
+			left: 23px;
+		}
+		&:hover {
+			.icon-gallery-nav { left: 20px; }
+		}
+	}
+}
+
+#office-gallery {
+	max-width: 768px;
+	@include breakpoint(ten) { max-width: 885px; }
+	@include breakpoint(fourteen) { max-width: 1260px; }
+	.slick-arrow {
+		top: auto;
+		bottom: 25px;
+		@include breakpoint(ten) {
+			bottom: 40px;
+		}
+	}
+	.slick-next {
+		right: 25px;
+		@include breakpoint(ten) {
+			right: 40px;
+		}
+	}
+	.slick-prev {
+		left: 25px;
+		@include breakpoint(ten) {
+			left: auto;
+			right: 110px;
+		}
+	}
+}
+
+#instagram {
+	padding: 50px 0 125px;
+	@include breakpoint(ten) {
+		padding: 125px 0;		
+	}
+	.content-wrap {
+		position: relative;
+		text-align: center;
+		padding: 0 20px 30px;
+		@include breakpoint(ten) {
+			text-align: left;
+			padding: 0 0 50px 75px;
+		}
+		.shape {
+			@include breakpoint(ten) {
+				background: $red;
+				height: 100px;
+				width: 55px;
+				left: 0;
+				position: absolute;
+			}
+		}
+
+		.title {
+			margin: 0 0 25px;
+			@include font-family($bold);
+			@include font(4, $black);
+		}
+		.subtitle {
+			@include font-family($light);
+			@include font(1.5, $black);
+		}
+	}
+
+	// Instagram Carousel
+	.instagram-carousel {
+		.slick-arrow {
+			position: absolute;
+			bottom: -80px;
+			border: 1px solid $darkgray;
+			background: none;
+			@extend .ease;
+			@include square(56);
+			@include border-radius(50%);
+			@include appearance(none);
+			@include breakpoint(ten) {
+				bottom: auto;
+				top: -138px;
+			}
+			span {
+				position: absolute;
+				color: $darkgray;
+				@include font-size(1);
+				padding: 24px;
+			}
+			&.slick-prev {
+				left: 25px;
+				@include breakpoint(ten) {
+					left: auto;
+					right: 151px;
+				}
+				span {
+					@include transform(rotate(180deg));
+					right: 2px;
+				}
+			}
+			&.slick-next {
+				left: 97px;
+				@include breakpoint(ten) {
+					left: auto;
+					right: 80px;
+				}
+				span {
+					right: 0;
+				}
+			}
+
+			// Hover
+			&:hover {
+				border: 1px solid $black;
+				span {
+					cursor: pointer;
+					color: $black;
+				}
+				&.slick-next {
+					span { right: -3px; }
+				}
+				&.slick-prev {
+					span { right: 5px; }
+				}
+			}
+		}
+	}
+	.carousel-links {
+		display: none;
+		@include breakpoint(ten) {
+			display: block;
+			text-align: right;
+			padding: 65px 80px 0;
+		}
+		.link {
+			margin:  0 20px 0 0;
+			display: inline-block;
+			.real-link, .faux-link {
+				position: relative;
+				cursor: pointer;
+				@include font-family($light);
+				@include font(1.5, $black);
+				background: $lightgray;
+				text-decoration: none;
+				display: inline-block;
+				padding: 20px 75px 20px 30px;	
+				.icon-arrow {
+					position: absolute;
+					right: 30px;
+				}
+				&:hover {
+					.icon-arrow {
+						right: 27px;
+					}
+				}
+			}
+			&.social-links {
+				margin: 0;
+				position: relative;
+				.social-container {
+					@extend .ease;
+					opacity: 0;
+					position: absolute;
+					margin: 0 auto;
+					text-align: center;
+					width: 156px;
+					right: 0;
+					left: 0;
+					top: 44px;
+					visibility: hidden;
+					.triangle {
+						position: absolute;
+						right: 0;
+						@include square(20);
+						background: url('../images/follow-triangle.png') 0 0 no-repeat transparent;
+					}
+					.social {
+						margin: 20px 0 0;
+						background: #000;
+						padding: 15px;
+						a.icon {
+							background: none;
+						  color: $white;
+						  padding: 5px;
+						  @include font-size(1.2);
+						  .fa-stack-1x { color: $black; }
+						  &:hover { color: $red; }
+						}
+					}
+				}
+			}
+			&:hover {
+				.social-container {
+					opacity: 1;
+					visibility: visible;
+				}
+			}
+		}
+	}
+}
+
+.page-template-careers {
+	#bottom-callouts {
+		padding: 95px 0;
+		border-top: 2px solid $green;
+	}
+}
